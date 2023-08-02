@@ -114,14 +114,16 @@ class Images
      * @param string $image
      * @param string $name
      * @param bool $delete_after_upload
+     * @param array $meta_data
      * @return string
      * @throws Exception
      */
-    public function uploadImageFile(string $image, string $name, bool $delete_after_upload = false): string
+    public function uploadImageFile(string $image, string $name, bool $delete_after_upload = false, array $meta_data = []): string
     {
         try {
             $response = $this->post("https://api.cloudflare.com/client/v4/accounts/{$this->cf_account_id}/images/v1", [
                 'file' => new \CURLFile($image, mime_content_type($image), $name),
+                'metadata' => json_encode($meta_data)
             ], ["Authorization: Bearer {$this->cf_api_token}"]);
 
             $response = json_decode($response);

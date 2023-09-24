@@ -29,11 +29,12 @@ You can get the construct parameters from your CloudFlare account.
 **Image Uploading**
 
 I highly recommend using it with the try-catch block. Because this method throws Exception for cURL.
-Last parameter for delete image file after the uploading. It's optional, default value is false.
+Second to last parameter for delete image file after the uploading. It's optional, default value is false.
+Last parameter for metadata, default value is [] it is optional.
 
 Returns Image ID for getting the uploaded image from CDN
 
-    $imageId = $cloudFlareImages->uploadImageFile('File_Path', 'File_Name', false)
+    $imageId = $cloudFlareImages->uploadImageFile('File_Path', 'File_Name', false, ['key'=>'value'])
 
 **Getting the Uploaded Image URL**
 

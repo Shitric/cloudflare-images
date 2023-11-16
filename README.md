@@ -24,26 +24,36 @@ A simple PHP class for CloudFlare Images CDN.
 
 You can get the construct parameters from your CloudFlare account.
 
-    $cloudFlareImages = new Images('Account_ID', 'API_Token', 'Images_Hash', 'Domain');
+```PHP
+$cloudFlareImages = new Images('Account_ID', 'API_Token', 'Images_Hash', 'Domain');
+```
 
 **Image Uploading**
 
-I highly recommend using it with the try-catch block. Because this method throws Exception for cURL.
-Second to last parameter for delete image file after the uploading. It's optional, default value is false.
-Last parameter for metadata, default value is [] it is optional.
+I highly recommend using it with the try-catch block. Because this method throws Exception for cURL.  
+- 3rd parameter for delete image file after the uploading. It's optional, default value is `false`.
+- 4th parameter for metadata. It's optional, default value is `[]` it is optional.
+- 5th parameter for custom ID (max 1024 alpha-numeric chars). It's optional, default is `''` and lets Cloudflare generate the image ID. See
+  [Cloudflare Docs](https://developers.cloudflare.com/images/cloudflare-images/upload-images/custom-id/)
 
 Returns Image ID for getting the uploaded image from CDN
 
-    $imageId = $cloudFlareImages->uploadImageFile('File_Path', 'File_Name', false, ['key'=>'value'])
+```PHP
+$imageId = $cloudFlareImages->uploadImageFile('File_Path', 'File_Name', false, ['key'=>'value'], 'Custom_ID');
+```
 
 **Getting the Uploaded Image URL**
 
 Just give the Image ID and it will returns the direct Image url. Second parameter for image variant. Default is **public**.
 
-    $cloudFlareImages->getImageUrl('Image_ID', 'Variant')
+```PHP
+$cloudFlareImages->getImageUrl('Image_ID', 'Variant');
+```
 
 **Deleting the Image from CDN**
 
 Returns **True** or **False**.
 
-    $cloudFlareImages->deleteImage('Image_ID')
+```PHP
+$cloudFlareImages->deleteImage('Image_ID');
+```

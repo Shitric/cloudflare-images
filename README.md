@@ -15,7 +15,7 @@ A simple PHP class for CloudFlare Images CDN.
 
 **Manual**
 
-- Download the CloudFlareImages.php file from src/Images.php
+- Download the Images.php file from src
 - Include your project with require or require_once functions. Choose what if you want.
 
 # Usage

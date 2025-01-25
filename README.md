@@ -31,9 +31,9 @@ $cloudFlareImages = new Images('Account_ID', 'API_Token', 'Images_Hash', 'Domain
 **Image Uploading**
 
 I highly recommend using it with the try-catch block. Because this method throws Exception for cURL.  
-- 3rd parameter for delete image file after the uploading. It's optional, default value is `false`.
-- 4th parameter for metadata. It's optional, default value is `[]` it is optional.
-- 5th parameter for custom ID (max 1024 alpha-numeric chars). It's optional, default is `''` and lets Cloudflare generate the image ID. See
+- 3rd parameter for delete image file after the uploading. Default value is `false`.
+- 4th parameter for metadata. Default value is `[]`.
+- 5th parameter for custom ID (max 1024 alpha-numeric chars). Default is `''` and lets Cloudflare generate the image ID. See
   [Cloudflare Docs](https://developers.cloudflare.com/images/cloudflare-images/upload-images/custom-id/)
 
 Returns Image ID for getting the uploaded image from CDN
